@@ -1,0 +1,17 @@
+{
+    "development": {
+      "username": "ajeku_realty_user",
+      "password": "ajekurealty1",
+      "database": "ajeku_realty_db",
+      "host": "127.0.0.1",
+      "dialect": "postgres"
+    },
+    "production": {
+      "username": "ajeku_realty_user",
+      "password": "ajekurealty1",
+      "database": "ajeku_realty_db",
+      "host": "127.0.0.1",
+      "dialect": "postgres"
+    }
+  }
+  
