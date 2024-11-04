@@ -8,10 +8,16 @@ const env = process.env.NODE_ENV || 'development';
 const config = require('../config/config.json')[env]; // Adjust the path as needed
 const db = {};
 
-// Create a Sequelize instance
-const sequelize = new Sequelize(config.database, config.username, config.password, {
-  host: config.host,
-  dialect: config.dialect,
+// Create a Sequelize instance using DATABASE_URL
+const sequelize = new Sequelize(process.env.DATABASE_URL, {
+  dialect: 'postgres',
+  protocol: 'postgres',
+  dialectOptions: {
+    ssl: {
+      require: true, // This will ensure SSL is used
+      rejectUnauthorized: false, // Allows self-signed certificates
+    },
+  },
 });
 
 // Import your models
